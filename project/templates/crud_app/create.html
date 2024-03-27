@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>create</title>
+{% endblock %}
+{% block content %}
+    <div class="border border-4 col-3 m-auto mt-5 p-3 bg-info">
+        <h3 class="text-center">Voting Card Form</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="bg-warning">
+        </form>
+    </div>
+{% endblock %}

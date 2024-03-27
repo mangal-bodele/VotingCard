@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>show</title>
+{% endblock %}
+{% block content %}
+    <table class="table-bordered m-auto col-8 text-center mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FIRSTNAME</th>
+                <th>LASTNAME</th>
+                <th>GENDER</th>
+                <th>DOB</th>
+                <th>address</th>
+                <th>CONSTITUENCY</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for votingcard in votingcards %}
+                <tr>
+                        <td>{{ votingcard.id }}</td>
+                        <td>{{ votingcard.firstname }}</td>
+                        <td>{{ votingcard.lastname }}</td>
+                        <td>{{ votingcard.gender }}</td>
+                        <td>{{ votingcard.dob }}</td>
+                        <td>{{ votingcard.address }}</td>
+                        <td>{{ votingcard.constituency }}</td>
+                        <td>
+                            <a href="{% url 'update_url' votingcard.id %}">
+                                <button>Update</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_url' votingcard.id %}">
+                                <button>Delete</button>
+                            </a>
+                        </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
